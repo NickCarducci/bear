@@ -48,5 +48,5 @@ route = "saltbank.org/bear"
 #dir = "src"
 #main = "./index.mjs"
 
-[build]
-command = "worker-build --release" 
+#[build]
+#command = "worker-build --release" 
