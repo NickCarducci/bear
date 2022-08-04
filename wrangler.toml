@@ -14,7 +14,7 @@ main = "build/worker/shim.mjs"
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 
-# "services" exists at the top level, but not on "env.production".
+# "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
 [[env.production.services]]
 binding = "BANK"
 service = "mastercard-backbank-service-binding"
