@@ -7,8 +7,8 @@ export default {
       status: 200,
       statusText: "ok"
     });*/
-    if (rq.method === "OPTIONS")
-      /*return rq.http.Origin.includes("sausage.saltbank.org")
+    /*if (rq.method === "OPTIONS")
+      return rq.http.Origin.includes("sausage.saltbank.org")
         ? new Response("yeah alright", {
             status: 200,
             statusText: "ok",
