@@ -2,31 +2,35 @@
 
 export default {
   //const bearer = context.CF_API_Key;
-  async fetch(rq, env, context) {
+  async fetch(r, env, context) {
     /*return new Response("ok", {
       status: 200,
       statusText: "ok"
     });*/
-    /*if (rq.method === "OPTIONS")
-      return rq.http.Origin.includes("sausage.saltbank.org")
+    const http = { Origin: r.headers.get("Origin") },
+      rq = r.clone();
+    if (r.method === "OPTIONS") {
+      return http.Origin.includes("sausage.saltbank.org")
         ? new Response("yeah alright", {
             status: 200,
             statusText: "ok",
             headers: {
               "Content-Type": "Application/JSON",
-              "Access-Control-Allow-Origin": rq.http.Origin,
-              "Access-Control-Allow-Methods":
-                rq.headers["Access-Control-Request-Method"]
+              "Access-Control-Allow-Origin": http.Origin,
+              "Access-Control-Allow-Methods": rq.headers.get(
+                "Access-Control-Request-Method"
+              ) //rq.headers["Access-Control-Request-Method"]
               //...Object.keys(JSON.parse(rq.headers))
             }
             //"sausage.saltbank.org",
           })
-        : new Response("no access for " + rq.http.Origin, {
+        : new Response("no access for " + http.Origin, {
             status: 403,
             statusText: "not ok"
             //"Access-Control-Allow-Origin": rq.http.Origin,
             //"sausage.saltbank.org",
-          });*/
+          });
+    }
     //https://developers.cloudflare.com/workers/examples/modify-response/
     //var response =
     //https://developers.cloudflare.com/workers/examples/modify-request-property/
@@ -38,40 +42,40 @@ export default {
     // Clone the response so that it's no longer immutable
     //maxAge: 3600
 
-  
     // Rewrite request to point to API URL. This also makes the request mutable
     // so you can add the correct Origin header to make the API server think
     // that this request is not cross-site.
     try {
-      return await fetch(
+      return await env.BANK.fetch(rq);
+      /*return await fetch(
         new Request(
           new URL("https://sausage.saltbank.org/api").toString(),
-          new Request(rq, {
+          new Request(r, {
             //USED BEAR PATH for actual api path (differnet zone)
             //https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/5
             //mastercard-backbank.backbank.workers.dev
             //origin: true,
             //cors: "origin",
             // Change method
-            method: rq.method,
+            method: r.method,
             // Change body
             body: JSON.stringify(
-              rq.body
+              r.body
             ) /*JSON.stringify({
             pageOffset: "0",
             pageLength: "10",
             postalCode: "77777"
-          })*/,
+          })* /,
             // Change the redirect mode.
             redirect: "follow",
             headers: {
-              Origin: new URL(rq.url).origin,//"https://i7l8qe.csb.app",
+              Origin: new URL(r.url).origin, //"https://i7l8qe.csb.app",
               //"Access-Control-Request-Headers": ["Allow", "Origin"],
               //"Referrer-Policy": "cross-origin",
               //https://developers.cloudflare.com/firewall/api/cf-firewall-rules/post/
               "X-Auth-Email": "nmcarducci@gmail.com",
-              "X-Auth-Key": /*context.*/ env.CF_API_KEY, // cloudflare pages>settings>environment_variables
-              ...rq.headers //"Content-Type": "Application/JSON",
+              "X-Auth-Key": /*context.* / env.CF_API_KEY, // cloudflare pages>settings>environment_variables
+              ...r.headers //"Content-Type": "Application/JSON",
               //"Access-Control-Request-Method": request.method
             }
             // Change a Cloudflare feature on the outbound response
@@ -83,6 +87,7 @@ export default {
         .then((pro = (result) => JSON.stringify(result)) => new Response(pro))
         .catch((pro = (err) => JSON.stringify(err)) => new Response(pro));
       //return new Response("Hello World!");
+    */
     } catch (e) {
       const pro = JSON.stringify(e);
       return new Response(pro, {
