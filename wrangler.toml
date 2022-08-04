@@ -31,6 +31,7 @@ route = "saltbank.org/bear"
 # https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/7
 
 [build.upload]
+format = "modules" # "service-workers"
 # This just works as a single file quick edit from the dashboard without bashing wrangler
 # unless post request?
 # https://developers.cloudflare.com/workers/examples/alter-headers
