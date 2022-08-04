@@ -2,7 +2,8 @@
 name = "bear-relay-dev"
 type = "javascript"
 account_id = "9ddca7c9df604668fc6d14f079b2f066"
-zone_id = "6202e995eadc857cd8e97e8ba608286d" #https://github.com/NickCarducci/mastercard-backbank/blob/main/wrangler.toml
+# Deprecation: "zone_id": This is unnecessary since we can deduce this from routes directly.
+# zone_id = "6202e995eadc857cd8e97e8ba608286d" #https://github.com/NickCarducci/mastercard-backbank/blob/main/wrangler.toml
 # usage_model = ''
 route = "saltbank.org/bear"
 compatibility_flags = []
@@ -12,16 +13,17 @@ main = "build/worker/shim.mjs"
 
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
-[[services]]
-binding = "BANK"
-service = "mastercard-backbank-service-binding"
-environment = "production" 
 
 [env.production]
 # exclude = ["node_modules","*"]
 # include = ["dist/*","src/*"]
 name = "bear-relay"
 route = "saltbank.org/bear"
+
+[[services]]
+binding = "BANK"
+service = "mastercard-backbank-service-binding"
+environment = "production" 
 
 [env.staging]
 name = "bear-relay-staging"
