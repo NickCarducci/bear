@@ -12,7 +12,7 @@ compatibility_date = "2022-08-02"
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 [[services]]
-binding = "BEAR"
+binding = "BANK"
 service = "mastercard-backbank-service-binding"
 
 [env.production]
