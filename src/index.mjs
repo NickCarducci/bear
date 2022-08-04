@@ -8,7 +8,7 @@ export default {
       statusText: "ok"
     });*/
     if (rq.method === "OPTIONS")
-      return rq.http.Origin.includes("sausage.saltbank.org")
+      /*return rq.http.Origin.includes("sausage.saltbank.org")
         ? new Response("yeah alright", {
             status: 200,
             statusText: "ok",
@@ -26,7 +26,7 @@ export default {
             statusText: "not ok"
             //"Access-Control-Allow-Origin": rq.http.Origin,
             //"sausage.saltbank.org",
-          });
+          });*/
     //https://developers.cloudflare.com/workers/examples/modify-response/
     //var response =
     //https://developers.cloudflare.com/workers/examples/modify-request-property/
@@ -38,6 +38,10 @@ export default {
     // Clone the response so that it's no longer immutable
     //maxAge: 3600
 
+  
+    // Rewrite request to point to API URL. This also makes the request mutable
+    // so you can add the correct Origin header to make the API server think
+    // that this request is not cross-site.
     try {
       return await fetch(
         new Request(
@@ -61,7 +65,7 @@ export default {
             // Change the redirect mode.
             redirect: "follow",
             headers: {
-              //Origin: "https://i7l8qe.csb.app",
+              Origin: new URL(rq.url).origin,//"https://i7l8qe.csb.app",
               //"Access-Control-Request-Headers": ["Allow", "Origin"],
               //"Referrer-Policy": "cross-origin",
               //https://developers.cloudflare.com/firewall/api/cf-firewall-rules/post/
