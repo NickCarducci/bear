@@ -40,7 +40,7 @@ format = "modules" # "service-workers"
 # try tomorrow
 # format = "service-workers" # "modules"
 # dir = "build/worker" # dist for libraries...
-dir = "/"
+dir = "src"
 main = "./index.mjs"
 
 #[build]
