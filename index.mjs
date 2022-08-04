@@ -1,5 +1,5 @@
 // /bear
-export default {
+export default { 
     //const bearer = context.CF_API_Key;
     async fetch(rq, env, context) {
       return new Response("ok", {
