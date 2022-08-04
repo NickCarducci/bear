@@ -5,7 +5,7 @@ on:
       - published
   push:
     branches:
-      - main
+      - maintenance
 jobs:
   build:
     runs-on: ubuntu-latest
