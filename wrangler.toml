@@ -14,16 +14,17 @@ main = "build/worker/shim.mjs"
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 
+# "services" exists at the top level, but not on "env.production".
+[env.production.services]
+binding = "BANK"
+service = "mastercard-backbank-service-binding"
+environment = "production" 
+
 [env.production]
 # exclude = ["node_modules","*"]
 # include = ["dist/*","src/*"]
 name = "bear-relay"
 route = "saltbank.org/bear"
-
-[[services]]
-binding = "BANK"
-service = "mastercard-backbank-service-binding"
-environment = "production" 
 
 [env.staging]
 name = "bear-relay-staging"
