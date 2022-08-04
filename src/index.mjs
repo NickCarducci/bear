@@ -6,9 +6,8 @@ export default {
     /*return new Response("ok", {
       status: 200,
       statusText: "ok"
-    });*/
-    const http = { Origin: r.headers.get("Origin") },
-      rq = r.clone();
+    });*/ //https://blog.cloudflare.com/service-bindings-ga/
+    const http = { Origin: r.headers.get("Origin") };
     if (r.method === "OPTIONS") {
       return http.Origin.includes("sausage.saltbank.org")
         ? new Response("yeah alright", {
@@ -17,7 +16,7 @@ export default {
             headers: {
               "Content-Type": "Application/JSON",
               "Access-Control-Allow-Origin": http.Origin,
-              "Access-Control-Allow-Methods": rq.headers.get(
+              "Access-Control-Allow-Methods": r.headers.get(
                 "Access-Control-Request-Method"
               ) //rq.headers["Access-Control-Request-Method"]
               //...Object.keys(JSON.parse(rq.headers))
@@ -46,7 +45,9 @@ export default {
     // so you can add the correct Origin header to make the API server think
     // that this request is not cross-site.
     try {
-      return await env.BANK.fetch(rq);
+      //https://community.cloudflare.com/t/how-to-bind-services-in-wrangler-toml/386369
+      //const rq = r.clone();
+      return await env.BANK.fetch("./api");//new Request("https://sausage.saltbank.org/api")); //r//"./api"
       /*return await fetch(
         new Request(
           new URL("https://sausage.saltbank.org/api").toString(),
@@ -89,9 +90,9 @@ export default {
       //return new Response("Hello World!");
     */
     } catch (e) {
-      const pro = JSON.stringify(e);
-      return new Response(pro, {
-        status: 200,
+      //const pro = JSON.stringify(e);
+      return new Response(e, {
+        status: 403,
         statusText: "ok"
       });
     }
