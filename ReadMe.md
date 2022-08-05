@@ -1,3 +1,5 @@
+### Using Wrangler 2
+
 bearer authorization service worker to work in conjunction with (cloudflare) pages authorized ([firebase](https://github.com/NickCarducci/sausage/tree/maintenance/bear)) /api (resource hostname)path/referer firewall
 
 [Service binding](https://blog.cloudflare.com/service-bindings-ga/) cloudflare protocol
