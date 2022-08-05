@@ -13,7 +13,7 @@ main = "src/index.mjs" # "build/worker/shim.mjs"
 
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
-_
+#_
 # [[services]]
 # binding = "BANK"
 # service = "mastercard-backbank-service-binding"
@@ -24,7 +24,7 @@ _
 # binding = "BANK"
 # service = "mastercard-backbank-service-binding"
 # environment = "production" 
-_
+#_
 [env.production]
 # exclude = ["node_modules","*"]
 # include = ["dist/*","src/*"]
