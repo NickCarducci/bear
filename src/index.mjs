@@ -52,9 +52,11 @@ export default {
 
       //const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
       //const href = urlObject.searchParams.get("name");
-      return await ((eo = env.BANK) => eo.get(eo.idFromName(env.BANK))) //((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
-        //return await env.BANK.fetch(new Request("./api")); //r
-        .fetch(new Request("./api"));
+      return await (async (eo = env.BANK) =>
+        await eo
+          .get(eo.idFromName(env.BANK)) //((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
+          //return await env.BANK.fetch(new Request("./api")); //r
+          .fetch(new Request("./api")))();
       /*.then(async (res) => {
                         console.log("response from worker object", res);
                         //return res; //await res.json();
@@ -106,7 +108,7 @@ export default {
       //const pro = JSON.stringify(e);
       return new Response(e, {
         status: 403,
-        statusText: "ok"
+        statusText: "no method caught"
       });
     }
   }
