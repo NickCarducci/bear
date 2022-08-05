@@ -34,7 +34,7 @@ export default {
     //var response =
     //https://developers.cloudflare.com/workers/examples/modify-request-property/
 
-    var request = new Response(rq.body, rq);
+    //var request = new Response(r.body, r);
     //https://developers.cloudflare.com/workers/runtime-apis/request/
     //const request = rq.clone().json();
     //https://developers.cloudflare.com/workers/examples/alter-headers/
@@ -52,10 +52,10 @@ export default {
 
       //const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
       //const href = urlObject.searchParams.get("name");
-      return await eo.get(eo.idFromName(env.BANK))//((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
-      //return await env.BANK.fetch(new Request("./api")); //r
-                      .fetch(new Request("./api"))
-                      /*.then(async (res) => {
+      return await ((eo = env.BANK) => eo.get(eo.idFromName(env.BANK))) //((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
+        //return await env.BANK.fetch(new Request("./api")); //r
+        .fetch(new Request("./api"));
+      /*.then(async (res) => {
                         console.log("response from worker object", res);
                         //return res; //await res.json();
                         return new Response(res,{status:200,message:"ok"})
