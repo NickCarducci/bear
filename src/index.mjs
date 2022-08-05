@@ -50,9 +50,9 @@ export default {
       //bearer/.github/workflows/main.yml https://github.com/NickCarducci/bear/blob/maintenance/.github/workflows/main.yml
       //wranglerVersion = "2.0.24" //https://github.com/cloudflare/workers-rs/pull/183
 
-      const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
-      const href = urlObject.searchParams.get("name");
-      return await ((eo = env.BANK) => eo.get(eo.idFromName(href)))();
+      //const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
+      //const href = urlObject.searchParams.get("name");
+      return await ((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
       //return await env.BANK.fetch(new Request("./api")); //r
       /*return await fetch(
         new Request(
