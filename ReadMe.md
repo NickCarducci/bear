@@ -1,4 +1,4 @@
-### Using Wrangler 2
+### Using Wrangler 2 (5/2022)
 
 bearer authorization service worker to work in conjunction with (cloudflare) pages authorized ([firebase](https://github.com/NickCarducci/sausage/tree/maintenance/bear)) /api (resource hostname)path/referer firewall
 
