@@ -47,7 +47,13 @@ export default {
     try {
       //https://community.cloudflare.com/t/how-to-bind-services-in-wrangler-toml/386369
       //const rq = r.clone();
-      return await env.BANK.fetch("./api");//new Request("https://sausage.saltbank.org/api")); //r//"./api"
+      //bearer/.github/workflows/main.yml https://github.com/NickCarducci/bear/blob/maintenance/.github/workflows/main.yml
+      //wranglerVersion = "2.0.24" //https://github.com/cloudflare/workers-rs/pull/183
+
+      const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
+      const href = urlObject.searchParams.get("name");
+      return await ((eo = env.BANK) => eo.get(eo.idFromName(href)))();
+      //return await env.BANK.fetch(new Request("./api")); //r
       /*return await fetch(
         new Request(
           new URL("https://sausage.saltbank.org/api").toString(),
