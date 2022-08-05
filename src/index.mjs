@@ -52,11 +52,12 @@ export default {
 
       //const urlObject = new URL("https://sausage.saltbank.org/api"); //r.url
       //const href = urlObject.searchParams.get("name");
-      return await (async (eo = env.BANK) =>
+      return await env.BANK.fetch(new Request("./api", r));
+      /*return await (async (eo = env.BANK) =>
         await eo
-          .get(eo.idFromName(env.BANK)) //((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
+          .get(eo.idFromName("/api")) //((eo = env.BANK) => eo.get(eo.idFromName("https://sausage.saltbank.org/api")))();
           //return await env.BANK.fetch(new Request("./api")); //r
-          .fetch(new Request("./api")))();
+          .fetch(new Request("./api")))();*/
       /*.then(async (res) => {
                         console.log("response from worker object", res);
                         //return res; //await res.json();
