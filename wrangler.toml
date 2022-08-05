@@ -1,6 +1,6 @@
 
 name = "bear-relay-dev"
-type = "javascript"
+# type = "javascript"
 account_id = "9ddca7c9df604668fc6d14f079b2f066"
 # Deprecation (Worker 2): "zone_id": This is unnecessary since we can deduce this from routes directly.
 # zone_id = "6202e995eadc857cd8e97e8ba608286d" #https://github.com/NickCarducci/mastercard-backbank/blob/main/wrangler.toml
