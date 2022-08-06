@@ -14,10 +14,10 @@ compatibility_date = "2022-08-02"
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 #_
-# [[services]]
-# binding = "BANK"
-# service = "mastercard-backbank-service-binding"
-# environment = "production" 
+[[services]]
+binding = "BANK"
+service = "mastercard-backbank-service-binding"
+environment = "production" 
 
 # "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
 [[env.production.services]]
