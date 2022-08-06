@@ -20,10 +20,7 @@ service = "mastercard-backbank-service-binding"
 environment = "production" 
 
 # "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
-[[env.production.services]]
-binding = "BANK"
-service = "mastercard-backbank-service-binding"
-environment = "production" 
+[[env.production.services]] = [services]
 #_
 [env.production]
 # exclude = ["node_modules","*"]
