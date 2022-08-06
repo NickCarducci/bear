@@ -19,34 +19,6 @@ workers_dev = false
 #service = "mastercard-backbank-service-binding"
 #environment = "production" 
 
-#https://developers.cloudflare.com/workers/wrangler/configuration/
-# "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
-#[[env.production.services]]
-[env]
-compatibility_flags = []
-compatibility_date = "2022-08-02"
-services = [  {
-  binding = "BANK",
-  service = "mastercard-backbank", #-service-binding
-  environment = "production" }
-]
-#_
-[env.production]
-# exclude = ["node_modules","*"]
-# include = ["dist/*","src/*"]
-name = "bear-relay"
-route = "saltbank.org/bear"
-
-[env.staging]
-name = "bear-relay-staging"
-route = "saltbank.org/bear"
-
-# https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/5
-# You can’t call another Worker in the same zone (subdomain NOT ok)
-# https://support.cloudflare.com/hc/en-us/articles/115001595131-Understanding-Cloudflare-Zone-Lockdown
-# https://github.com/cloudflare/wrangler2/pull/906
-# https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/7
-
 [build.upload]
 format = "modules" # "service-workers"
 # This just works as a single file quick edit from the dashboard without bashing wrangler
@@ -61,3 +33,33 @@ main = "./index.mjs"
 
 #[build] for rust
 #command = "worker-build --release" 
+
+
+#https://developers.cloudflare.com/workers/wrangler/configuration/
+# "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
+#[[env.production.services]]
+[env]
+compatibility_flags = []
+compatibility_date = "2022-08-02"
+services = [  {
+  binding = "BANK",
+  service = "mastercard-backbank", #-service-binding
+  environment = "production" }
+]
+#_
+#[env.production]
+# exclude = ["node_modules","*"]
+# include = ["dist/*","src/*"]
+#name = "bear-relay"
+#route = "saltbank.org/bear"
+
+#[env.staging]
+#name = "bear-relay-staging"
+#route = "saltbank.org/bear"
+
+# https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/5
+# You can’t call another Worker in the same zone (subdomain NOT ok)
+# https://support.cloudflare.com/hc/en-us/articles/115001595131-Understanding-Cloudflare-Zone-Lockdown
+# https://github.com/cloudflare/wrangler2/pull/906
+# https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/7
+
