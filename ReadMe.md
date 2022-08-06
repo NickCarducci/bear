@@ -1,4 +1,4 @@
-### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails for service bindings
+### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails for service bindings[' environments](https://developers.cloudflare.com/workers/wrangler/environments/)
 
 bearer authorization service worker to work in conjunction with (cloudflare) pages authorized ([firebase](https://github.com/NickCarducci/sausage/tree/maintenance/bear)) /api (resource hostname)path/referer firewall
 
