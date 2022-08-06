@@ -9,3 +9,5 @@ request.clone() when a single path in your router, if any, is fetched twice
 the module as opposed to service worker format for service workers have a function declaration fetch that does not count
 
 as such a fetch as inside, where two readings would require a clone, again, per path (to even compile?)
+
+[legacy](https://github.com/NickCarducci/mastercard-backbank-wrangler-1)
