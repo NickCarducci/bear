@@ -2,7 +2,7 @@
 
 ````
   ...
-  CF_API_KEY: ${{ secrets.CF_API_KEY }}
+  apiToken: ${{ secrets.CF_API_TOKEN }}
 env:
   CF_ZONE_ID:
   CF_ACCOUNT_ID:
