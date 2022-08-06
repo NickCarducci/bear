@@ -9,7 +9,7 @@ route = "saltbank.org/bear"
 compatibility_flags = []
 workers_dev = false
 compatibility_date = "2022-08-02"
-main = "src/index.mjs" # "build/worker/shim.mjs"
+#main = "src/index.mjs" # "build/worker/shim.mjs"
 
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
@@ -41,7 +41,7 @@ route = "saltbank.org/bear"
 # https://github.com/cloudflare/wrangler2/pull/906
 # https://community.cloudflare.com/t/is-a-worker-allowed-to-make-requests-to-another-worker/194733/7
 
-#[build.upload]
+[build.upload]
 # format = "modules" # "service-workers"
 # This just works as a single file quick edit from the dashboard without bashing wrangler
 # unless post request?
@@ -50,8 +50,8 @@ route = "saltbank.org/bear"
 # try tomorrow
 # format = "service-workers" # "modules"
 # dir = "build/worker" # dist for libraries...
-#dir = "src"
-#main = "./index.mjs"
+dir = "src"
+main = "./index.mjs"
 
-#[build]
+#[build] for rust
 #command = "worker-build --release" 
