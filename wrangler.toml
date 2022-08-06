@@ -6,22 +6,30 @@ account_id = "9ddca7c9df604668fc6d14f079b2f066"
 # zone_id = "6202e995eadc857cd8e97e8ba608286d" #https://github.com/NickCarducci/mastercard-backbank/blob/main/wrangler.toml
 # usage_model = ''
 route = "saltbank.org/bear"
-compatibility_flags = []
+#compatibility_flags = []
 workers_dev = false
-compatibility_date = "2022-08-02"
+#compatibility_date = "2022-08-02"
 #main = "src/index.mjs" # "build/worker/shim.mjs"
 #build.upload or main =
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 #_
-[[services]]
-binding = "BANK"
-service = "mastercard-backbank-service-binding"
-environment = "production" 
+#[[services]]
+#binding = "BANK"
+#service = "mastercard-backbank-service-binding"
+#environment = "production" 
 
+#https://developers.cloudflare.com/workers/wrangler/configuration/
 # "services" exists at the top level, but not on "env.production". [[_{}=]] is a way to make an array of the object of `toml` files.. oh
-[[env.production.services]]
-[services]
+#[[env.production.services]]
+[env]
+compatibility_flags = []
+compatibility_date = "2022-08-02"
+services = [  {
+  binding = "BANK",
+  service = "mastercard-backbank-service-binding",
+  environment = "production" }
+]
 #_
 [env.production]
 # exclude = ["node_modules","*"]
