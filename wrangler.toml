@@ -10,7 +10,7 @@ compatibility_flags = []
 workers_dev = false
 compatibility_date = "2022-08-02"
 #main = "src/index.mjs" # "build/worker/shim.mjs"
-
+#build.upload or main =
 #[env.production.vars]
 #bear = "mastercard-backbank-service-binding"
 #_
