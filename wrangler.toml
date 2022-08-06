@@ -27,7 +27,7 @@ compatibility_flags = []
 compatibility_date = "2022-08-02"
 services = [  {
   binding = "BANK",
-  service = "mastercard-backbank-service-binding",
+  service = "mastercard-backbank", #-service-binding
   environment = "production" }
 ]
 #_
