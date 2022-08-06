@@ -1,4 +1,4 @@
-### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails for service bindings[' environments](https://developers.cloudflare.com/workers/wrangler/environments/)
+### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails [for service](https://developers.cloudflare.com/workers/platform/environments/) bindings[' environments](https://developers.cloudflare.com/workers/wrangler/environments/)
 
 ````
   ...
