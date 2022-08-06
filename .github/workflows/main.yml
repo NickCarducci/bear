@@ -16,7 +16,7 @@ jobs:
         run: cd $GITHUB_WORKSPACE
           
       - name: Publish # https://github.com/cloudflare/wrangler-action/issues/76#issuecomment-1139761919
-        uses: cloudflare/wrangler-action@2.0.0
+        uses: cloudflare/wrangler-action@1.3.0 # 2.0.0
         with:
           # email: "nmcarducci@gmail.com"
           apiToken: ${{ secrets.CF_API_TOKEN }}
@@ -28,6 +28,6 @@ jobs:
           # preCommands: npm install
           command: publish --env production
           environment: "production"
-          wranglerVersion: '2.0.24'
+          # wranglerVersion: '2.0.24'
         env:
           USER: root
