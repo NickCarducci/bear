@@ -25,3 +25,5 @@ as such a fetch as inside, where two readings would require a clone, again, per 
 if rust can only run on service worker, and service binding is not yet ready between workers, how to authenticate without environment variables are shown to endpoints but for a custom domain per worker... maybe a bearer isn't even needed...?
 
 Actually, using subdomain as custom domain of worker (rust, functions cannot) allows for firewall rules to be applied from the top level
+
+this means your firewall rules can block referer origins of not <bear.top.com> when uri path eq and hostname eq <api.top.com>, in which the latter is actually a service worker with a custom domain
