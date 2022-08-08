@@ -23,3 +23,5 @@ as such a fetch as inside, where two readings would require a clone, again, per 
 ## Subdomain to subdomain (path notwithstanding) is that which does NOT pass pages CF's internal CORS (page web app firewall rules> abstracted CORS)
 
 if rust can only run on service worker, and service binding is not yet ready between workers, how to authenticate without environment variables are shown to endpoints but for a custom domain per worker... maybe a bearer isn't even needed...?
+
+Actually, using subdomain as custom domain of worker (rust, functions cannot) allows for firewall rules to be applied from the top level
