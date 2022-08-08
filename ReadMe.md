@@ -20,3 +20,6 @@ as such a fetch as inside, where two readings would require a clone, again, per 
 
 [legacy](https://github.com/NickCarducci/mastercard-backbank-wrangler-1)
 
+## Subdomain to subdomain (path notwithstanding) is that which does NOT pass pages CF's internal CORS (page web app firewall rules> abstracted CORS)
+
+if rust can only run on service worker, and service binding is not yet ready between workers, how to authenticate without environment variables are shown to endpoints but for a custom domain per worker... maybe a bearer isn't even needed...?
