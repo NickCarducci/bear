@@ -29,3 +29,5 @@ Actually, using subdomain as custom domain of worker (rust, functions cannot) al
 this means your firewall rules can block referer origins of not <bear.top.com> when uri path eq and hostname eq <api.top.com>, in which the latter is actually a service worker with a custom domain that is a subdomain of your pages' tld
 
 Blocking referers but for a given subdomain [will also block GET requests without a referer](https://markethistory.quora.com/Is-a-host-name-not-the-responding-URL-1) (from a browser)
+
+# [Pages](https://github.com/NickCarducci/sausage)
