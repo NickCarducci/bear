@@ -1,3 +1,5 @@
+# Depreciated: [use bearer this way (request.auth(_))?](https://github.com/cloudflare/cloudflare-rs/blob/master/cloudflare/src/framework/async_api.rs)
+
 ### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails [for service](https://developers.cloudflare.com/workers/platform/environments/) bindings[' environments](https://developers.cloudflare.com/workers/wrangler/environments/)
 
 ````
