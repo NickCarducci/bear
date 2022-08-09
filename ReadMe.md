@@ -1,16 +1,18 @@
-# Depreciated: [use bearer this way (request.auth(_))?](https://github.com/cloudflare/cloudflare-rs/blob/master/cloudflare/src/framework/async_api.rs)
+# Depreciated: [use bearer this way (request.auth(\_))?](https://github.com/cloudflare/cloudflare-rs/blob/master/cloudflare/src/framework/async_api.rs)
+
+[uses this 'mod.rs' as a "crate"](https://github.com/cloudflare/cloudflare-rs/blob/master/cloudflare/src/framework/mod.rs)
 
 lmao get it? depreciated for alpha mkay
 
 ### Using [Wrangler 2](https://github.com/NickCarducci/mastercard-backbank) (5/2022) fails [for service](https://developers.cloudflare.com/workers/platform/environments/) bindings[' environments](https://developers.cloudflare.com/workers/wrangler/environments/)
 
-````
+```
   ...
   apiToken: ${{ secrets.CF_API_TOKEN }}
 env:
   CF_ZONE_ID:
   CF_ACCOUNT_ID:
-````
+```
 
 bearer authorization service worker to work in conjunction with (cloudflare) pages authorized ([firebase](https://github.com/NickCarducci/sausage/tree/maintenance/bear)) /api (resource hostname)path/referer firewall
 
